@@ -1,0 +1,5 @@
+node_modules
+/vendor/
+database.sqlite
+browser.log
+laravel.log

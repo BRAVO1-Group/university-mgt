@@ -1,0 +1,100 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Contact;
+
+
+class HomeController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('index');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function dashboard()
+    {
+        $contacts = Contact::all();
+        return view('dashboard', compact('contacts'));
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+    public function register()
+    {
+        return view('register');
+    }
+    
+    public function forgotPassword()
+    {
+        return view ('forgot-password');
+    }
+    public function contactList()
+    {
+        return view ('contact-list');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $contact = new Contact();
+        $contact->full_name = $request->input('full_name');
+        $contact->campus_email = $request->input('campus_email');
+        $contact->department = $request->input('department');
+        $contact->message = $request->input('message');
+        $contact->save();
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}

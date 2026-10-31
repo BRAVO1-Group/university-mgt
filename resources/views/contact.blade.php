@@ -1,139 +1,152 @@
 @extends('layouts.main')
-@section('content') 
-    <!-- Start: Header -->
-    @include('layouts.header')
-    <!-- End: Header -->
 
-    <!-- Start: Contact -->
-    <section class="relative pt-20 bg-white">
+@section('title', 'Academic Inquiries & Contact — University Management System')
+
+@section('content')
+    <!-- Contact Section -->
+    <section class="relative pt-28 pb-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start py-16 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start py-8">
                 <div>
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#d97706] mb-3">Contact us</p>
-                    <h1 class="text-3xl sm:text-4xl font-bold mb-5 leading-tight">
-                        Need the helpdesk?<br>
-                        <span class="text-gradient">We are on campus.</span>
+                    <span class="text-xs font-bold text-[#2563eb] uppercase tracking-wider mb-2 block">Registrar &amp; Helpdesk</span>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
+                        Need Academic Assistance?<br>
+                        <span class="text-[#2563eb]">We're here on campus.</span>
                     </h1>
-                    <p class="text-sm sm:text-base text-slate-500 mb-8 leading-relaxed">
-                        Use this page for general questions. For a leak, projector, or room booking, open a ticket after you sign in — that reaches the right department faster.
+                    <p class="text-sm text-slate-500 mb-8 leading-relaxed">
+                        Have inquiries regarding course allocations, registration clearance, syllabus prerequisites, or department transfers? Send us a message or visit our campus registry offices.
                     </p>
 
                     <div class="space-y-4">
-                        <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200">
-                            <div class="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                                <i data-lucide="mail" class="w-5 h-5 text-[#2563eb]"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-slate-50/50">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-semibold">Email</p>
-                                <a href="mailto:helpdesk@campus.ac.ug" class="text-sm text-[#2563eb]">helpdesk@campus.ac.ug</a>
+                                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Email Inquiry</p>
+                                <a href="mailto:academic.registrar@university.ac.ug" class="text-sm font-bold text-slate-900 hover:text-blue-600 transition">academic.registrar@university.ac.ug</a>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200">
-                            <div class="w-11 h-11 rounded-lg bg-amber-50 flex items-center justify-center shrink-0">
-                                <i data-lucide="phone" class="w-5 h-5 text-[#d97706]"></i>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-slate-50/50">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-semibold">Phone</p>
-                                <p class="text-sm text-slate-500">Estates: 0414 000 210</p>
-                                <p class="text-sm text-slate-500">ICT: 0414 000 211</p>
+                                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Telephone Inquiries</p>
+                                <p class="text-sm font-bold text-slate-900">Admissions &amp; Records: +256 (0) 414 123 456</p>
+                                <p class="text-xs text-slate-500">Student Services: +256 (0) 414 123 457</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3 p-4 rounded-xl border border-slate-200">
-                            <div class="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                                <i data-lucide="clock" class="w-5 h-5 text-[#2563eb]"></i>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-slate-50/50">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-semibold">Helpdesk hours</p>
-                                <p class="text-sm text-slate-500">Monday–Friday, 8:00am – 5:00pm</p>
+                                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Office Hours</p>
+                                <p class="text-sm font-bold text-slate-900">Monday – Friday: 8:00 AM – 5:00 PM</p>
+                                <p class="text-xs text-slate-500">Closed on public holidays and university recesses</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xl">
-                    <p class="text-xs uppercase tracking-wider text-[#d97706] font-semibold">Send a message</p>
-                    <h2 class="text-lg font-semibold mt-1 mb-6">We will reply to your campus email</h2>
+                <!-- Contact Form -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+                    <h2 class="text-lg font-bold text-slate-900 mb-1">Submit an Academic Inquiry</h2>
+                    <p class="text-xs text-slate-500 mb-6">Our academic advising desk will respond within 24 hours.</p>
+
+                    @if(session('success'))
+                        <div class="mb-5 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
                     <form action="{{ route('contact.store') }}" method="POST" class="space-y-4">
                         @csrf
                         <div>
-                            <label for="full_name" class="block text-sm font-medium text-slate-600 mb-2">Full name</label>
-                            <input type="text" id="full_name" name="full_name" required minlength="2" placeholder="Aisha Namuli" class="input-field">
+                            <label for="full_name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Your Full Name <span class="text-rose-500">*</span></label>
+                            <input type="text" id="full_name" name="full_name" required value="{{ old('full_name') }}" placeholder="e.g. John Doe"
+                                class="block w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:outline-none focus:border-blue-500">
                         </div>
+
                         <div>
-                            <label for="email" class="block text-sm font-medium text-slate-600 mb-2">Campus email</label>
-                            <input type="email" id="email" name="campus_email" required placeholder="aisha.namuli@campus.ac.ug" class="input-field">
+                            <label for="campus_email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Your Email Address <span class="text-rose-500">*</span></label>
+                            <input type="email" id="campus_email" name="campus_email" required value="{{ old('campus_email') }}" placeholder="you@university.ac.ug"
+                                class="block w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:outline-none focus:border-blue-500">
                         </div>
+
                         <div>
-                            <label for="department" class="block text-sm font-medium text-slate-600 mb-2">Department</label>
-                            <select id="department" name="department" required class="input-field">
-                                <option value="">Choose one</option>
-                                <option value="estates">Estates</option>
-                                <option value="ict">ICT Support</option>
-                                <option value="halls">Halls</option>
-                                <option value="hostels">Hostels</option>
-                                <option value="registry">Registry</option>
-                                <option value="admin">Administration</option>
+                            <label for="department" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Department / Inquiring Unit <span class="text-rose-500">*</span></label>
+                            <select id="department" name="department" required
+                                class="block w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:outline-none focus:border-blue-500">
+                                <option value="Academic Registrar">Academic Registrar</option>
+                                <option value="Computer Science">Computer Science Department</option>
+                                <option value="Engineering">Engineering Department</option>
+                                <option value="Business Administration">Business Administration</option>
+                                <option value="Examinations Office">Examinations Office</option>
+                                <option value="ICT Support">ICT Directorate</option>
                             </select>
                         </div>
+
                         <div>
-                            <label for="message" class="block text-sm font-medium text-slate-600 mb-2">Message</label>
-                            <textarea id="message" name="message" required rows="5" placeholder="How can we help?" class="input-field"></textarea>
+                            <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Your Message <span class="text-rose-500">*</span></label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Describe your question in detail..."
+                                class="block w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:bg-white focus:outline-none focus:border-blue-500">{{ old('message') }}</textarea>
                         </div>
-                        <button type="submit" class="w-full py-3 px-4 rounded-xl text-sm font-semibold text-white bg-[#2563eb] hover:bg-[#1d4ed8] glow-blue">
-                            Send message
+
+                        <button type="submit" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#2563eb] text-white font-semibold text-xs hover:bg-[#1d4ed8] shadow-sm transition">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Send Message</span>
                         </button>
-                        <p class="text-xs text-slate-500 text-center">Faults and bookings should go through a ticket, not this form.</p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End: Contact -->
 
-    <!-- Start: Offices -->
-    <section class="py-24 bg-white border-t border-slate-200">
+    <!-- Academic Offices Locations -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2563eb] mb-3">Offices</p>
-                <h2 class="text-2xl sm:text-3xl font-bold mb-3">Where to find us on campus</h2>
-                <p class="text-sm text-slate-500">Walk in during helpdesk hours, or send a message and we will point you to the right desk.</p>
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-[#2563eb] uppercase tracking-wider">Campus Locations</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">Registry &amp; Academic Advising Desks</h3>
             </div>
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="p-5 rounded-xl bg-white border border-slate-200 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-lg bg-blue-50 flex items-center justify-center mb-3">
-                        <i data-lucide="hammer" class="w-6 h-6 text-[#2563eb]"></i>
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 text-center shadow-xs">
+                    <div class="w-10 h-10 mx-auto rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                        <i data-lucide="building" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-semibold mb-1">Estates</h3>
-                    <p class="text-xs text-slate-500">Block A, ground floor</p>
+                    <h4 class="font-bold text-slate-900 text-sm mb-0.5">Senate Registry</h4>
+                    <p class="text-xs text-slate-500">Academic Senate House, Floor 1</p>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-slate-200 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-lg bg-amber-50 flex items-center justify-center mb-3">
-                        <i data-lucide="monitor-smartphone" class="w-6 h-6 text-[#d97706]"></i>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 text-center shadow-xs">
+                    <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+                        <i data-lucide="laptop" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-semibold mb-1">ICT Helpdesk</h3>
-                    <p class="text-xs text-slate-500">Library, 1st floor</p>
+                    <h4 class="font-bold text-slate-900 text-sm mb-0.5">ICT Directorate</h4>
+                    <p class="text-xs text-slate-500">Main University Library, Wing B</p>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-slate-200 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-lg bg-blue-50 flex items-center justify-center mb-3">
-                        <i data-lucide="door-open" class="w-6 h-6 text-[#2563eb]"></i>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 text-center shadow-xs">
+                    <div class="w-10 h-10 mx-auto rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-semibold mb-1">Halls office</h3>
-                    <p class="text-xs text-slate-500">Academic block</p>
+                    <h4 class="font-bold text-slate-900 text-sm mb-0.5">Examinations Bureau</h4>
+                    <p class="text-xs text-slate-500">Central Records Office, Room 102</p>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-slate-200 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-lg bg-amber-50 flex items-center justify-center mb-3">
-                        <i data-lucide="home" class="w-6 h-6 text-[#d97706]"></i>
+
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 text-center shadow-xs">
+                    <div class="w-10 h-10 mx-auto rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+                        <i data-lucide="users" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="font-semibold mb-1">Hostels office</h3>
-                    <p class="text-xs text-slate-500">Gate 2</p>
+                    <h4 class="font-bold text-slate-900 text-sm mb-0.5">Dean of Students</h4>
+                    <p class="text-xs text-slate-500">Student Center Complex, Gate 1</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End: Offices -->
-
-    <!-- Start: Footer -->
-    @include('layouts.footer')
-    <!-- End: Footer -->
 @endsection

@@ -2,99 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Contact;
-
+use App\Models\Course;
+use App\Models\Department;
+use App\Models\Lecturer;
+use App\Models\Student;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(): View
     {
-        return view('index');
+        $stats = [
+            'students' => Student::count(),
+            'lecturers' => Lecturer::count(),
+            'courses' => Course::count(),
+            'departments' => Department::count(),
+        ];
+
+        $featuredCourses = Course::with(['department', 'lecturer.user'])
+            ->withCount('registrations')
+            ->take(6)
+            ->get();
+
+        $departments = Department::withCount('courses')->take(4)->get();
+
+        return view('index', compact('stats', 'featuredCourses', 'departments'));
     }
 
-    public function contact()
+    public function dashboard(): RedirectResponse|View
+    {
+        if (! Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        /** @var User $user */
+        $user = Auth::user();
+
+        if ($user->isAdmin()) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        if ($user->isLecturer()) {
+            return redirect()->route('lecturer.dashboard');
+        }
+
+        return redirect()->route('student.dashboard');
+    }
+
+    public function contact(): View
     {
         return view('contact');
     }
 
-    public function dashboard()
+    public function contactList(): View
     {
-        $contacts = Contact::all();
-        return view('dashboard', compact('contacts'));
-    }
+        $contacts = Contact::latest()->paginate(10);
 
-    public function login()
-    {
-        return view('login');
-    }
-    public function register()
-    {
-        return view('register');
-    }
-    
-    public function forgotPassword()
-    {
-        return view ('forgot-password');
-    }
-    public function contactList()
-    {
-        return view ('contact-list');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $contact = new Contact();
-        $contact->full_name = $request->input('full_name');
-        $contact->campus_email = $request->input('campus_email');
-        $contact->department = $request->input('department');
-        $contact->message = $request->input('message');
-        $contact->save();
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return view('contact-list', compact('contacts'));
     }
 }

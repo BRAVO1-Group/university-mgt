@@ -3,3 +3,4 @@ node_modules
 database.sqlite
 browser.log
 laravel.log
+.env

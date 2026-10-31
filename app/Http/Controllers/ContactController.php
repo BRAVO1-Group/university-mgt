@@ -3,69 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Department;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function contact()
+    public function contact(): View
     {
-        return view('contact');
+        $departments = Department::orderBy('name')->get();
+
+        return view('contact', compact('departments'));
     }
 
-    public function ContactList()
+    public function ContactList(): View
     {
-        $contacts = Contact::all();
-        $contacts = Contact::select('fullname', 'department')->get();
+        $contacts = Contact::latest()->paginate(10);
+
         return view('contact-list', compact('contacts'));
     }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
-    }
+        $validated = $request->validate([
+            'full_name' => ['required', 'string', 'max:255'],
+            'campus_email' => ['required', 'string', 'email', 'max:255'],
+            'department' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string'],
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
+        Contact::create($validated);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Contact $contact)
-    {
-        //
+        return back()->with('success', 'Your inquiry has been submitted to the academic office. We will reply promptly.');
     }
 }

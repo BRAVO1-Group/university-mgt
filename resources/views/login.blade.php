@@ -14,24 +14,6 @@
                 </a>
             </div>
 
-            <!-- Fast Demo Login Cards -->
-            <div class="mb-5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 text-center">
-                    Quick 1-Click Demo Login:
-                </p>
-                <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                    <a href="{{ route('demo.login', 'admin') }}" class="p-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 font-semibold border border-purple-200 transition">
-                        Admin
-                    </a>
-                    <a href="{{ route('demo.login', 'lecturer') }}" class="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold border border-emerald-200 transition">
-                        Lecturer
-                    </a>
-                    <a href="{{ route('demo.login', 'student') }}" class="p-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold border border-blue-200 transition">
-                        Student
-                    </a>
-                </div>
-            </div>
-
             <!-- Sign in Card -->
             <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
                 <div class="mb-6">
@@ -55,7 +37,7 @@
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i data-lucide="mail" class="h-4 w-4"></i>
                             </div>
-                            <input type="email" id="email" name="email" value="{{ old('email', 'admin@university.ac.ug') }}" required autofocus
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus placeholder="you@university.ac.ug"
                                 class="block w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]">
                         </div>
                     </div>
@@ -66,7 +48,7 @@
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i data-lucide="lock" class="h-4 w-4"></i>
                             </div>
-                            <input type="password" id="password" name="password" value="password" required
+                            <input type="password" id="password" name="password" required placeholder="••••••••"
                                 class="block w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]">
                         </div>
                     </div>
@@ -76,7 +58,6 @@
                             <input type="checkbox" name="remember" class="h-4 w-4 rounded border-slate-300 text-[#2563eb] focus:ring-[#2563eb]">
                             <span class="text-slate-600">Keep me signed in</span>
                         </label>
-                        <span class="text-slate-400">Default pass: <code class="text-slate-700 bg-slate-100 px-1 py-0.5 rounded">password</code></span>
                     </div>
 
                     <button type="submit" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#2563eb] text-white font-semibold text-sm hover:bg-[#1d4ed8] shadow-sm transition">

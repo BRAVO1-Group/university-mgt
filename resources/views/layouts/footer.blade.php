@@ -25,10 +25,10 @@
             <div>
                 <h4 class="font-semibold text-white text-sm uppercase tracking-wider mb-4">Portal Access</h4>
                 <ul class="space-y-2.5 text-sm text-slate-400">
-                    <li><a href="{{ route('demo.login', 'admin') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Management Portal</a></li>
-                    <li><a href="{{ route('demo.login', 'lecturer') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i> Lecturer Portal & Rosters</a></li>
-                    <li><a href="{{ route('demo.login', 'student') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i> Student Course Registration</a></li>
-                    <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Staff & Student Login</a></li>
+                    <li><a href="{{ route('login') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Management Portal</a></li>
+                    <li><a href="{{ route('login') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i> Lecturer Portal &amp; Rosters</a></li>
+                    <li><a href="{{ route('login') }}" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i> Student Course Registration</a></li>
+                    <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Staff &amp; Student Login</a></li>
                     <li><a href="{{ route('register') }}" class="hover:text-white transition-colors">New Student Registration</a></li>
                 </ul>
             </div>

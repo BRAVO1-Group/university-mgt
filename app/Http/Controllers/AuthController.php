@@ -111,31 +111,6 @@ class AuthController extends Controller
         return redirect()->route('student.dashboard')->with('success', 'Account created successfully!');
     }
 
-    public function demoLogin(string $role): RedirectResponse
-    {
-        $user = match ($role) {
-            'admin' => User::where('role', 'admin')->first(),
-            'lecturer' => User::where('role', 'lecturer')->first(),
-            'student' => User::where('role', 'student')->first(),
-            default => null,
-        };
-
-        if (! $user) {
-            return redirect()->route('login')->with('error', "No demo account found for {$role}.");
-        }
-
-        Auth::login($user);
-        request()->session()->regenerate();
-
-        $destination = match ($user->role) {
-            'admin' => 'admin.dashboard',
-            'lecturer' => 'lecturer.dashboard',
-            default => 'student.dashboard',
-        };
-
-        return redirect()->route($destination)->with('success', "Switched to demo {$user->role} ({$user->name})");
-    }
-
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();

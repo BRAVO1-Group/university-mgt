@@ -23,7 +23,7 @@
                     </p>
 
                     <!-- Fast Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-4">
                         @auth
                             <a href="{{ route('dashboard') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2563eb] text-white rounded-xl font-semibold text-sm hover:bg-[#1d4ed8] shadow-md transition">
                                 <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
@@ -39,36 +39,6 @@
                                 New Student Registration
                             </a>
                         @endauth
-                    </div>
-
-                    <!-- Instant Role Selector Pill Bar -->
-                    <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs max-w-xl mx-auto lg:mx-0">
-                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2.5">
-                            Instant Demo Tour — Click a role to test:
-                        </p>
-                        <div class="grid grid-cols-3 gap-2">
-                            <a href="{{ route('demo.login', 'admin') }}" class="p-2.5 rounded-xl border border-purple-200 bg-purple-50/60 hover:bg-purple-100/70 text-left transition group">
-                                <span class="text-xs font-bold text-purple-900 flex items-center gap-1.5">
-                                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-600"></i>
-                                    Admin
-                                </span>
-                                <span class="text-[11px] text-purple-700 block mt-0.5">Manage All Records</span>
-                            </a>
-                            <a href="{{ route('demo.login', 'lecturer') }}" class="p-2.5 rounded-xl border border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/70 text-left transition group">
-                                <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
-                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-emerald-600"></i>
-                                    Lecturer
-                                </span>
-                                <span class="text-[11px] text-emerald-700 block mt-0.5">View Assigned Courses</span>
-                            </a>
-                            <a href="{{ route('demo.login', 'student') }}" class="p-2.5 rounded-xl border border-blue-200 bg-blue-50/60 hover:bg-blue-100/70 text-left transition group">
-                                <span class="text-xs font-bold text-blue-900 flex items-center gap-1.5">
-                                    <i data-lucide="book-open" class="w-3.5 h-3.5 text-blue-600"></i>
-                                    Student
-                                </span>
-                                <span class="text-[11px] text-blue-700 block mt-0.5">Register for Courses</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -155,7 +125,7 @@
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> Create &amp; assign courses with capacity limits</li>
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> Oversee campus registrations and rosters</li>
                     </ul>
-                    <a href="{{ route('demo.login', 'admin') }}" class="text-xs font-semibold text-purple-700 hover:text-purple-900 inline-flex items-center gap-1">
+                    <a href="{{ route('login') }}" class="text-xs font-semibold text-purple-700 hover:text-purple-900 inline-flex items-center gap-1">
                         Open Admin Portal <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
                 </div>
@@ -174,7 +144,7 @@
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Real-time registered student lists with IDs</li>
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Classroom venue and schedule details</li>
                     </ul>
-                    <a href="{{ route('demo.login', 'lecturer') }}" class="text-xs font-semibold text-emerald-700 hover:text-emerald-900 inline-flex items-center gap-1">
+                    <a href="{{ route('login') }}" class="text-xs font-semibold text-emerald-700 hover:text-emerald-900 inline-flex items-center gap-1">
                         Open Lecturer Portal <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
                 </div>
@@ -193,7 +163,7 @@
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> 1-click self-service course registration</li>
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-600"></i> View registered timetable &amp; credit points</li>
                     </ul>
-                    <a href="{{ route('demo.login', 'student') }}" class="text-xs font-semibold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
+                    <a href="{{ route('login') }}" class="text-xs font-semibold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
                         Open Student Portal <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
                 </div>
@@ -210,7 +180,7 @@
                     <h2 class="text-3xl font-bold text-slate-900 mt-1">Featured University Courses</h2>
                     <p class="text-sm text-slate-500 mt-1">Currently open for student registration.</p>
                 </div>
-                <a href="{{ route('demo.login', 'student') }}" class="inline-flex items-center gap-2 text-sm font-semibold text-[#2563eb] hover:text-[#1d4ed8]">
+                <a href="{{ route('login') }}" class="inline-flex items-center gap-2 text-sm font-semibold text-[#2563eb] hover:text-[#1d4ed8]">
                     Explore all available courses <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>

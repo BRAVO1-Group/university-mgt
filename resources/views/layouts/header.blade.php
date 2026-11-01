@@ -17,14 +17,6 @@
                 <a href="{{ route('home') }}#courses" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Course Catalog</a>
                 <a href="{{ route('contact') }}" class="text-sm font-medium {{ request()->routeIs('contact') ? 'text-[#2563eb] font-semibold' : 'text-slate-600 hover:text-slate-900' }}">Contact</a>
 
-                <!-- Demo Login Fast Switcher -->
-                <div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-xs">
-                    <span class="text-slate-500 font-medium mr-1">Demo:</span>
-                    <a href="{{ route('demo.login', 'admin') }}" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 text-slate-700 font-semibold shadow-xs">Admin</a>
-                    <a href="{{ route('demo.login', 'lecturer') }}" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 text-slate-700 font-semibold shadow-xs">Lecturer</a>
-                    <a href="{{ route('demo.login', 'student') }}" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 text-slate-700 font-semibold shadow-xs">Student</a>
-                </div>
-
                 @auth
                     <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2563eb] text-white rounded-lg font-medium text-sm hover:bg-[#1d4ed8] shadow-sm">
                         <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
@@ -60,15 +52,6 @@
                 <a href="{{ route('home') }}#departments" class="text-slate-600 hover:text-slate-900 text-sm font-medium py-1">Departments</a>
                 <a href="{{ route('home') }}#courses" class="text-slate-600 hover:text-slate-900 text-sm font-medium py-1">Courses</a>
                 <a href="{{ route('contact') }}" class="text-slate-600 hover:text-slate-900 text-sm font-medium py-1">Contact</a>
-
-                <div class="pt-2 pb-1 border-t border-slate-100">
-                    <p class="text-xs text-slate-500 font-semibold mb-2">Fast Demo Portals:</p>
-                    <div class="flex flex-wrap gap-2">
-                        <a href="{{ route('demo.login', 'admin') }}" class="px-3 py-1 bg-slate-100 text-xs font-semibold rounded-md text-slate-700">Admin</a>
-                        <a href="{{ route('demo.login', 'lecturer') }}" class="px-3 py-1 bg-slate-100 text-xs font-semibold rounded-md text-slate-700">Lecturer</a>
-                        <a href="{{ route('demo.login', 'student') }}" class="px-3 py-1 bg-slate-100 text-xs font-semibold rounded-md text-slate-700">Student</a>
-                    </div>
-                </div>
 
                 <div class="flex flex-col gap-2 pt-2 border-t border-slate-100">
                     @auth

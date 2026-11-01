@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -32,23 +33,38 @@ class User extends Authenticatable
         'name',
         'email',
         'role',
+        'role_id',
         'phone',
         'password',
     ];
 
+    /**
+     * @return BelongsTo<Role, $this>
+     */
+    public function roleModel(): BelongsTo
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
+
+        return $roleName === 'admin';
     }
 
     public function isLecturer(): bool
     {
-        return $this->role === 'lecturer';
+        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
+
+        return $roleName === 'lecturer';
     }
 
     public function isStudent(): bool
     {
-        return $this->role === 'student' || empty($this->role);
+        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
+
+        return $roleName === 'student' || empty($roleName);
     }
 
     /**

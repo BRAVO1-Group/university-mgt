@@ -28,7 +28,6 @@ Route::post('/auth/login', [AuthController::class, 'login'])->name('login.post')
 Route::get('/auth/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/auth/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/auth/demo/{role}', [AuthController::class, 'demoLogin'])->name('demo.login');
 
 // Admin Portal Routes
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {

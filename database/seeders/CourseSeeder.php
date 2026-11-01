@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Course;
+use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
 {
@@ -12,26 +12,26 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-         $courses = [
+        $courses = [
             [
                 'title' => 'Database Systems',
                 'code' => 'BIT101',
-                'department_id' => 1
+                'department_id' => 1,
             ],
             [
                 'title' => 'Web Development',
                 'code' => 'BIT102',
-                  'department_id' => 2
+                'department_id' => 2,
             ],
             [
                 'title' => 'Computer Networks',
                 'code' => 'BIT103',
-                  'department_id' => 3
+                'department_id' => 3,
             ],
             [
                 'title' => 'Software Engineering',
                 'code' => 'BIT104',
-                  'department_id' => 4
+                'department_id' => 4,
             ],
         ];
 

@@ -159,25 +159,6 @@
                 @endif
             </nav>
 
-            <!-- Quick Demo Role Switcher at bottom of sidebar -->
-            <div class="p-3 border-t border-slate-800 bg-slate-950/60">
-                <p class="text-[11px] text-slate-400 font-semibold mb-2 flex items-center justify-between">
-                    <span>1-Click Role Switcher</span>
-                    <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-slate-400"></i>
-                </p>
-                <div class="grid grid-cols-3 gap-1.5 text-center text-xs">
-                    <a href="{{ route('demo.login', 'admin') }}" class="py-1 px-1 rounded font-medium {{ Auth::user()?->isAdmin() ? 'bg-purple-600 text-white font-bold' : 'bg-slate-800 hover:bg-slate-700 text-slate-300' }}">
-                        Admin
-                    </a>
-                    <a href="{{ route('demo.login', 'lecturer') }}" class="py-1 px-1 rounded font-medium {{ Auth::user()?->isLecturer() ? 'bg-emerald-600 text-white font-bold' : 'bg-slate-800 hover:bg-slate-700 text-slate-300' }}">
-                        Lecturer
-                    </a>
-                    <a href="{{ route('demo.login', 'student') }}" class="py-1 px-1 rounded font-medium {{ Auth::user()?->isStudent() ? 'bg-blue-600 text-white font-bold' : 'bg-slate-800 hover:bg-slate-700 text-slate-300' }}">
-                        Student
-                    </a>
-                </div>
-            </div>
-
             <!-- Sidebar Footer & Logout -->
             <div class="p-3 border-t border-slate-800 flex items-center justify-between">
                 <a href="{{ route('home') }}" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5">

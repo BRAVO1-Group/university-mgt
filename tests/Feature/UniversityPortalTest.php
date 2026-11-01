@@ -8,7 +8,10 @@ use App\Models\Department;
 use App\Models\Lecturer;
 use App\Models\Student;
 use App\Models\User;
+use Database\Seeders\DepartmentSeeder;
+use Database\Seeders\RoleSeeder;
 use Database\Seeders\UniversitySeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -19,7 +22,12 @@ class UniversityPortalTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->seed(UniversitySeeder::class);
+        $this->seed([
+            RoleSeeder::class,
+            DepartmentSeeder::class,
+            UserSeeder::class,
+            UniversitySeeder::class,
+        ]);
     }
 
     public function test_landing_page_renders_successfully(): void
@@ -28,31 +36,45 @@ class UniversityPortalTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('University Academic & Course');
-        $response->assertSee('Instant Demo Tour');
         $response->assertSee('CS101');
     }
 
-    public function test_demo_login_redirects_to_appropriate_portals(): void
+    public function test_users_from_user_seeder_can_login_to_appropriate_portals(): void
     {
-        // Admin
-        $response = $this->get(route('demo.login', 'admin'));
+        // Admin login
+        $response = $this->post(route('login.post'), [
+            'email' => 'admin@gmail.com',
+            'password' => 'Admin123',
+        ]);
         $response->assertRedirect(route('admin.dashboard'));
         $this->assertAuthenticated();
 
-        // Lecturer
-        $response = $this->get(route('demo.login', 'lecturer'));
+        $this->post(route('logout'));
+        $this->assertGuest();
+
+        // Lecturer login
+        $response = $this->post(route('login.post'), [
+            'email' => 'lecturer@gmail.com',
+            'password' => 'Lecturer123',
+        ]);
         $response->assertRedirect(route('lecturer.dashboard'));
         $this->assertAuthenticated();
 
-        // Student
-        $response = $this->get(route('demo.login', 'student'));
+        $this->post(route('logout'));
+        $this->assertGuest();
+
+        // Student login
+        $response = $this->post(route('login.post'), [
+            'email' => 'student@gmail.com',
+            'password' => 'Student123',
+        ]);
         $response->assertRedirect(route('student.dashboard'));
         $this->assertAuthenticated();
     }
 
     public function test_admin_can_access_dashboard_and_manage_records(): void
     {
-        $admin = User::where('role', 'admin')->first();
+        $admin = User::where('email', 'admin@gmail.com')->first();
 
         $response = $this->actingAs($admin)->get(route('admin.dashboard'));
         $response->assertStatus(200);

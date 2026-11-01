@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Department;
+use App\Models\Lecturer;
+use App\Models\Role;
+use App\Models\Student;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use App\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -36,17 +38,44 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        foreach ($users as $userData) {
-            $role = Role::where('name', $userData['role'])->firstOrFail();
+        $dept = Department::first();
 
-            User::updateOrCreate(
+        foreach ($users as $userData) {
+            $role = Role::where('name', $userData['role'])->first();
+
+            $user = User::updateOrCreate(
                 ['email' => $userData['email']],
                 [
                     'name' => $userData['name'],
                     'password' => $userData['password'],
-                    'role_id' => $role->id,
+                    'role_id' => $role?->id,
+                    'role' => strtolower($userData['role']),
                 ]
             );
+
+            if ($user->isLecturer() && ! $user->lecturer) {
+                Lecturer::updateOrCreate(
+                    ['user_id' => $user->id],
+                    [
+                        'staff_id' => 'LEC-'.str_pad((string) $user->id, 4, '0', STR_PAD_LEFT),
+                        'title' => 'Lecturer',
+                        'qualification' => 'Master of Science in Information Technology',
+                        'office_location' => 'Faculty Building, Room 201',
+                        'department_id' => $dept?->id,
+                    ]
+                );
+            } elseif ($user->isStudent() && ! $user->student) {
+                Student::updateOrCreate(
+                    ['user_id' => $user->id],
+                    [
+                        'student_id_number' => 'STU-'.date('Y').'-'.str_pad((string) $user->id, 3, '0', STR_PAD_LEFT),
+                        'program' => 'BSc Information Technology',
+                        'year_of_study' => 1,
+                        'status' => 'active',
+                        'department_id' => $dept?->id,
+                    ]
+                );
+            }
         }
     }
 }

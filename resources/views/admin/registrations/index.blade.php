@@ -55,14 +55,14 @@
             <table class="w-full text-left text-xs">
                 <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-100">
                     <tr>
-                        <th class="py-3.5 px-4">Student</th>
-                        <th class="py-3.5 px-4">Enrolled Course</th>
-                        <th class="py-3.5 px-4">Department &amp; Lecturer</th>
-                        <th class="py-3.5 px-4">Term</th>
-                        <th class="py-3.5 px-4">Status</th>
-                        <th class="py-3.5 px-4">Grade</th>
-                        <th class="py-3.5 px-4">Registration Date</th>
-                        <th class="py-3.5 px-4 text-right">Actions</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Student</th>
+                        <th class="py-3.5 px-4 min-w-[160px]">Enrolled Course</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Department &amp; Lecturer</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Term</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Status</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Grade</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Registration Date</th>
+                        <th class="py-3.5 px-4 text-right whitespace-nowrap">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-700">

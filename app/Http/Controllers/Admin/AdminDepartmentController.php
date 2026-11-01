@@ -10,9 +10,17 @@ use Illuminate\View\View;
 
 class AdminDepartmentController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $departments = Department::withCount(['students', 'courses', 'lecturers'])
+            ->when($request->filled('search'), function ($q) use ($request) {
+                $term = '%'.$request->search.'%';
+                $q->where(function ($query) use ($term) {
+                    $query->where('name', 'like', $term)
+                        ->orWhere('code', 'like', $term)
+                        ->orWhere('building', 'like', $term);
+                });
+            })
             ->orderBy('name')
             ->get();
 

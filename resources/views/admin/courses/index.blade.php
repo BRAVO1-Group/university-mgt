@@ -53,14 +53,14 @@
             <table class="w-full text-left text-xs">
                 <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-100">
                     <tr>
-                        <th class="py-3.5 px-4">Course Code</th>
-                        <th class="py-3.5 px-4">Title &amp; Department</th>
-                        <th class="py-3.5 px-4">Assigned Lecturer</th>
-                        <th class="py-3.5 px-4">Credits</th>
-                        <th class="py-3.5 px-4">Term</th>
-                        <th class="py-3.5 px-4">Capacity / Enrolled</th>
-                        <th class="py-3.5 px-4">Room &amp; Schedule</th>
-                        <th class="py-3.5 px-4 text-right">Actions</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Course Code</th>
+                        <th class="py-3.5 px-4 min-w-[200px]">Title &amp; Department</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Assigned Lecturer</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Credits</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Term</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Capacity / Enrolled</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Room &amp; Schedule</th>
+                        <th class="py-3.5 px-4 text-right whitespace-nowrap">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-700">

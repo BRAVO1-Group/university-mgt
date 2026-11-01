@@ -56,13 +56,13 @@
             <table class="w-full text-left text-xs">
                 <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-100">
                     <tr>
-                        <th class="py-3.5 px-4">Student ID</th>
-                        <th class="py-3.5 px-4">Student Name &amp; Contact</th>
-                        <th class="py-3.5 px-4">Department &amp; Program</th>
-                        <th class="py-3.5 px-4">Year</th>
-                        <th class="py-3.5 px-4">Registered Courses</th>
-                        <th class="py-3.5 px-4">Status</th>
-                        <th class="py-3.5 px-4 text-right">Actions</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Student ID</th>
+                        <th class="py-3.5 px-4 min-w-[180px]">Student Name &amp; Contact</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Department &amp; Program</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Year</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Registered Courses</th>
+                        <th class="py-3.5 px-4 whitespace-nowrap">Status</th>
+                        <th class="py-3.5 px-4 text-right whitespace-nowrap">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-700">

@@ -42,8 +42,9 @@ class UniversityPortalTest extends TestCase
     public function test_users_from_user_seeder_can_login_to_appropriate_portals(): void
     {
         // Admin login
+        $adminUser = User::where('role', 'admin')->first();
         $response = $this->post(route('login.post'), [
-            'email' => 'admin@gmail.com',
+            'email' => $adminUser->email,
             'password' => 'Admin123',
         ]);
         $response->assertRedirect(route('admin.dashboard'));
@@ -74,7 +75,7 @@ class UniversityPortalTest extends TestCase
 
     public function test_admin_can_access_dashboard_and_manage_records(): void
     {
-        $admin = User::where('email', 'admin@gmail.com')->first();
+        $admin = User::where('role', 'admin')->first();
 
         $response = $this->actingAs($admin)->get(route('admin.dashboard'));
         $response->assertStatus(200);

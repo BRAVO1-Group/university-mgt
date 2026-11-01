@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
 use App\Models\CourseRegistration;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,12 @@ class CourseRegistrationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'student_id' => Student::factory(),
+            'course_id' => Course::factory(),
+            'semester' => 'Semester 1',
+            'academic_year' => '2025/2026',
+            'status' => 'registered',
+            'grade' => null,
         ];
     }
 }

@@ -6,8 +6,8 @@ use Database\Factories\StudentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Student extends Model
 {
@@ -48,17 +48,12 @@ class Student extends Model
     }
 
     /**
-     * @return HasManyThrough<Course, CourseRegistration, $this>
+     * @return BelongsToMany<Course, $this>
      */
-    public function courses(): HasManyThrough
+    public function courses(): BelongsToMany
     {
-        return $this->hasManyThrough(
-            Course::class,
-            CourseRegistration::class,
-            'student_id', // Foreign key on course_registrations table...
-            'id', // Foreign key on courses table...
-            'id', // Local key on students table...
-            'course_id' // Local key on course_registrations table...
-        );
+        return $this->belongsToMany(Course::class, 'course_registrations')
+            ->withPivot(['id', 'semester', 'academic_year', 'status', 'grade'])
+            ->withTimestamps();
     }
 }

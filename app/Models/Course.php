@@ -6,8 +6,8 @@ use Database\Factories\CourseFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Course extends Model
 {
@@ -53,18 +53,13 @@ class Course extends Model
     }
 
     /**
-     * @return HasManyThrough<Student, CourseRegistration, $this>
+     * @return BelongsToMany<Student, $this>
      */
-    public function students(): HasManyThrough
+    public function students(): BelongsToMany
     {
-        return $this->hasManyThrough(
-            Student::class,
-            CourseRegistration::class,
-            'course_id',
-            'id',
-            'id',
-            'student_id'
-        );
+        return $this->belongsToMany(Student::class, 'course_registrations')
+            ->withPivot(['id', 'semester', 'academic_year', 'status', 'grade'])
+            ->withTimestamps();
     }
 
     public function enrolledCount(): int

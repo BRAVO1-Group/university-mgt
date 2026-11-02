@@ -91,27 +91,27 @@
                 <!-- Role: Administrator Links -->
                 @if(Auth::user()?->isAdmin())
                     <div class="px-3 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Administration</div>
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.dashboard') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.dashboard') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.dashboard') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
                         <span>Admin Overview</span>
                     </a>
-                    <a href="{{ route('admin.students.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.students.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.students.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.students.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="users" class="w-4 h-4"></i>
                         <span>Manage Students</span>
                     </a>
-                    <a href="{{ route('admin.lecturers.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.lecturers.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.lecturers.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.lecturers.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="graduation-cap" class="w-4 h-4"></i>
                         <span>Manage Lecturers</span>
                     </a>
-                    <a href="{{ route('admin.courses.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.courses.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.courses.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.courses.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="book-open" class="w-4 h-4"></i>
                         <span>Manage Courses</span>
                     </a>
-                    <a href="{{ route('admin.registrations.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.registrations.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.registrations.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.registrations.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="clipboard-list" class="w-4 h-4"></i>
                         <span>Course Registrations</span>
                     </a>
-                    <a href="{{ route('admin.departments.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.departments.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                    <a href="{{ route('administrator.departments.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition {{ request()->routeIs('admin.departments.*') ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                         <i data-lucide="building-2" class="w-4 h-4"></i>
                         <span>Departments</span>
                     </a>
@@ -202,9 +202,11 @@
                         @elseif(Auth::user()?->isLecturer()) bg-emerald-50 text-emerald-700 border border-emerald-200
                         @else bg-blue-50 text-blue-700 border border-blue-200 @endif">
                         <span class="w-2 h-2 rounded-full @if(Auth::user()?->isAdmin()) bg-purple-500 @elseif(Auth::user()?->isLecturer()) bg-emerald-500 @else bg-blue-500 @endif"></span>
-                        {{ ucfirst(Auth::user()->role ?? 'Student') }}
+                       {{ Auth::user()->roleModel?->name ?? 'Unassigned' }}
+                       
                     </span>
 
+                   
                     <!-- Home link -->
                     <a href="{{ route('home') }}" title="Go to home" class="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg">
                         <i data-lucide="globe" class="w-5 h-5"></i>
@@ -255,7 +257,7 @@
             <!-- Dashboard Footer -->
             <footer class="py-4 px-6 border-t border-slate-200 bg-white text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
                 <span>© {{ date('Y') }} University Academic Management System</span>
-                <span>Role Active: <strong class="text-slate-700">{{ ucfirst(Auth::user()->role ?? 'Student') }}</strong> ({{ Auth::user()->name ?? 'User' }})</span>
+                <span>Role Active: <strong class="text-slate-700">{{ Auth::user()->roleModel?->name ?? 'Unassigned' }}</strong> ({{ Auth::user()->name ?? 'User' }})</span>
             </footer>
         </div>
     </div>

@@ -30,7 +30,7 @@ Route::post('/auth/register', [AuthController::class, 'register'])->name('regist
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Portal Routes
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('administrator')->name('administrator.')->middleware(['auth', 'role:administrator'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     // Students CRUD
@@ -56,7 +56,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 });
 
 // Lecturer Portal Routes
-Route::prefix('lecturer')->name('lecturer.')->middleware(['auth', 'role:lecturer,admin'])->group(function () {
+Route::prefix('lecturer')->name('lecturer.')->middleware(['auth', 'role:lecturer,administrator'])->group(function () {
     Route::get('/dashboard', [LecturerPortalController::class, 'dashboard'])->name('dashboard');
     Route::get('/courses', [LecturerPortalController::class, 'courses'])->name('courses');
     Route::get('/courses/{course}/students', [LecturerPortalController::class, 'courseStudents'])->name('courses.students');
@@ -64,7 +64,7 @@ Route::prefix('lecturer')->name('lecturer.')->middleware(['auth', 'role:lecturer
 });
 
 // Student Portal Routes
-Route::prefix('student')->name('student.')->middleware(['auth', 'role:student,admin'])->group(function () {
+Route::prefix('student')->name('student.')->middleware(['auth', 'role:student'])->group(function () {
     Route::get('/dashboard', [StudentPortalController::class, 'dashboard'])->name('dashboard');
     Route::get('/courses', [StudentPortalController::class, 'availableCourses'])->name('courses');
     Route::post('/courses/register', [StudentPortalController::class, 'registerCourse'])->name('courses.register');

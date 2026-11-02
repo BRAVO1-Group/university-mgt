@@ -20,7 +20,7 @@
                 @auth
                     <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2563eb] text-white rounded-lg font-medium text-sm hover:bg-[#1d4ed8] shadow-sm">
                         <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-                        Dashboard ({{ ucfirst(Auth::user()->role) }})
+                        Dashboard {{ Auth::user()->roleModel?->name ?? 'Unassigned' }}
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
@@ -56,7 +56,7 @@
                 <div class="flex flex-col gap-2 pt-2 border-t border-slate-100">
                     @auth
                         <a href="{{ route('dashboard') }}" class="w-full text-center py-2.5 bg-[#2563eb] text-white rounded-lg font-medium text-sm">
-                            Open Portal ({{ ucfirst(Auth::user()->role) }})
+                            Open Portal {{ Auth::user()->roleModel?->name ?? 'Unassigned' }}
                         </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

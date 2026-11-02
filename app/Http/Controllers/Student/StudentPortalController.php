@@ -23,9 +23,8 @@ class StudentPortalController extends Controller
         if ($user->student) {
             return $user->student;
         }
+         return $user-> student;
 
-        // Fallback for demo/admin testing
-        return Student::first();
     }
 
     public function dashboard(): View

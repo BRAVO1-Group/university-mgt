@@ -27,7 +27,7 @@
                         @auth
                             <a href="{{ route('dashboard') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2563eb] text-white rounded-xl font-semibold text-sm hover:bg-[#1d4ed8] shadow-md transition">
                                 <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-                                Enter Your Portal ({{ ucfirst(Auth::user()->role) }})
+                                Enter Your Portal {{ Auth::user()->roleModel?->name ?? 'Unassigned' }}
                             </a>
                         @else
                             <a href="{{ route('login') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2563eb] text-white rounded-xl font-semibold text-sm hover:bg-[#1d4ed8] shadow-md transition">

@@ -21,6 +21,10 @@ class EnsureUserHasRole
             return redirect()->route('login')->with('error', 'Please log in to continue.');
         }
 
+        $userRole = strtolower($user->roleModel?->name ?? '');
+
+        $allowedRoles = array_map('strtolower', $roles);
+
         if (! in_array($user->role, $roles, true)) {
             abort(403, 'Unauthorized access to this portal.');
         }

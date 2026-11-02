@@ -11,7 +11,7 @@
             <i data-lucide="graduation-cap" class="w-8 h-8"></i>
         </div>
         <h2 class="text-xl font-bold text-slate-900 mb-2">Welcome, {{ Auth::user()->name }}!</h2>
-        <p class="text-xs text-slate-500 mb-6">You are signed in with the <strong class="text-slate-800">{{ ucfirst(Auth::user()->role) }}</strong> portal role.</p>
+        <p class="text-xs text-slate-500 mb-6">You are signed in with the <strong class="text-slate-800">{{ Auth::user()->roleModel?->name ?? 'Unassigned' }}</strong> portal role.</p>
 
         @if(Auth::user()->isAdmin())
             <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 shadow-xs">

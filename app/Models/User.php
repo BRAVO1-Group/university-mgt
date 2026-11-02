@@ -48,23 +48,19 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
+        return strtolower($this->role ?? $this->roleModel?->name ?? '') === 'administrator';
 
-        return $roleName === 'admin';
     }
 
     public function isLecturer(): bool
     {
-        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
+        return strtolower($this->role ?? $this->roleModel?->name ?? '') === 'lecturer';
 
-        return $roleName === 'lecturer';
     }
 
     public function isStudent(): bool
     {
-        $roleName = strtolower($this->role ?? $this->roleModel?->name ?? '');
-
-        return $roleName === 'student' || empty($roleName);
+        return strtolower($this->role ?? $this->roleModel?->name ?? '') ==='student';
     }
 
     /**

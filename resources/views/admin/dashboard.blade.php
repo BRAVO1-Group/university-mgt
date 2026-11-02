@@ -12,7 +12,7 @@
             <div>
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Students</p>
                 <p class="text-2xl font-black text-slate-900 mt-1">{{ $stats['students_count'] ?? 0 }}</p>
-                <a href="{{ route('admin.students.index') }}" class="text-xs text-[#2563eb] hover:underline font-medium mt-1 inline-block">Manage students →</a>
+                <a href="{{ route('administrator.students.index') }}" class="text-xs text-[#2563eb] hover:underline font-medium mt-1 inline-block">Manage students →</a>
             </div>
             <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                 <i data-lucide="users" class="w-6 h-6"></i>
@@ -23,7 +23,7 @@
             <div>
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Lecturers</p>
                 <p class="text-2xl font-black text-slate-900 mt-1">{{ $stats['lecturers_count'] ?? 0 }}</p>
-                <a href="{{ route('admin.lecturers.index') }}" class="text-xs text-emerald-600 hover:underline font-medium mt-1 inline-block">Manage lecturers →</a>
+                <a href="{{ route('administrator.lecturers.index') }}" class="text-xs text-emerald-600 hover:underline font-medium mt-1 inline-block">Manage lecturers →</a>
             </div>
             <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
                 <i data-lucide="graduation-cap" class="w-6 h-6"></i>
@@ -34,7 +34,7 @@
             <div>
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Courses</p>
                 <p class="text-2xl font-black text-slate-900 mt-1">{{ $stats['courses_count'] ?? 0 }}</p>
-                <a href="{{ route('admin.courses.index') }}" class="text-xs text-purple-600 hover:underline font-medium mt-1 inline-block">Manage catalog →</a>
+                <a href="{{ route('administrator.courses.index') }}" class="text-xs text-purple-600 hover:underline font-medium mt-1 inline-block">Manage catalog →</a>
             </div>
             <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
                 <i data-lucide="book-open" class="w-6 h-6"></i>
@@ -45,7 +45,7 @@
             <div>
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Registrations</p>
                 <p class="text-2xl font-black text-slate-900 mt-1">{{ $stats['registrations_count'] ?? 0 }}</p>
-                <a href="{{ route('admin.registrations.index') }}" class="text-xs text-amber-600 hover:underline font-medium mt-1 inline-block">View records →</a>
+                <a href="{{ route('administrator.registrations.index') }}" class="text-xs text-amber-600 hover:underline font-medium mt-1 inline-block">View records →</a>
             </div>
             <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
                 <i data-lucide="clipboard-check" class="w-6 h-6"></i>
@@ -56,7 +56,7 @@
             <div>
                 <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Departments</p>
                 <p class="text-2xl font-black text-slate-900 mt-1">{{ $stats['departments_count'] ?? 0 }}</p>
-                <a href="{{ route('admin.departments.index') }}" class="text-xs text-indigo-600 hover:underline font-medium mt-1 inline-block">View units →</a>
+                <a href="{{ route('administrator.departments.index') }}" class="text-xs text-indigo-600 hover:underline font-medium mt-1 inline-block">View units →</a>
             </div>
             <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
                 <i data-lucide="building-2" class="w-6 h-6"></i>
@@ -68,19 +68,19 @@
     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
         <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Quick Academic Management Actions</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="{{ route('admin.students.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 transition text-slate-800 hover:text-blue-700 text-xs font-semibold">
+            <a href="{{ route('administrator.students.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 transition text-slate-800 hover:text-blue-700 text-xs font-semibold">
                 <i data-lucide="user-plus" class="w-4 h-4 text-blue-600"></i>
                 <span>Register Student</span>
             </a>
-            <a href="{{ route('admin.lecturers.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 hover:border-emerald-200 transition text-slate-800 hover:text-emerald-700 text-xs font-semibold">
+            <a href="{{ route('administrator.lecturers.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 hover:border-emerald-200 transition text-slate-800 hover:text-emerald-700 text-xs font-semibold">
                 <i data-lucide="user-check" class="w-4 h-4 text-emerald-600"></i>
                 <span>Add Lecturer</span>
             </a>
-            <a href="{{ route('admin.courses.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-200 transition text-slate-800 hover:text-purple-700 text-xs font-semibold">
+            <a href="{{ route('administrator.courses.create') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-200 transition text-slate-800 hover:text-purple-700 text-xs font-semibold">
                 <i data-lucide="plus-circle" class="w-4 h-4 text-purple-600"></i>
                 <span>Create New Course</span>
             </a>
-            <a href="{{ route('admin.registrations.index') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-amber-50 hover:border-amber-200 transition text-slate-800 hover:text-amber-700 text-xs font-semibold">
+            <a href="{{ route('administrator.registrations.index') }}" class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-amber-50 hover:border-amber-200 transition text-slate-800 hover:text-amber-700 text-xs font-semibold">
                 <i data-lucide="clipboard-list" class="w-4 h-4 text-amber-600"></i>
                 <span>Manage Enrollments</span>
             </a>
@@ -96,7 +96,7 @@
                     <h2 class="text-base font-bold text-slate-900">Recent Course Registrations</h2>
                     <p class="text-xs text-slate-500">Live student enrollments across university courses</p>
                 </div>
-                <a href="{{ route('admin.registrations.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">
+                <a href="{{ route('administrator.registrations.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">
                     View all ({{ $stats['registrations_count'] ?? 0 }}) →
                 </a>
             </div>
@@ -165,7 +165,7 @@
             <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-base font-bold text-slate-900">Departments</h2>
-                    <a href="{{ route('admin.departments.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">Manage</a>
+                    <a href="{{ route('administrator.departments.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">Manage</a>
                 </div>
                 <div class="space-y-3">
                     @forelse($departments as $dept)
@@ -189,7 +189,7 @@
             <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-base font-bold text-slate-900">Course Capacity</h2>
-                    <a href="{{ route('admin.courses.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">All courses</a>
+                    <a href="{{ route('administrator.courses.index') }}" class="text-xs font-semibold text-[#2563eb] hover:underline">All courses</a>
                 </div>
                 <div class="space-y-3">
                     @foreach($courses as $c)

@@ -82,7 +82,7 @@ class AdminStudentController extends Controller
             ]);
         });
 
-        return redirect()->route('admin.students.index')->with('success', 'Student registered successfully.');
+        return redirect()->route('administrator.students.index')->with('success', 'Student registered successfully.');
     }
 
     public function edit(Student $student): View
@@ -129,7 +129,7 @@ class AdminStudentController extends Controller
             ]);
         });
 
-        return redirect()->route('admin.students.index')->with('success', 'Student details updated successfully.');
+        return redirect()->route('administrator.students.index')->with('success', 'Student details updated successfully.');
     }
 
     public function destroy(Student $student): RedirectResponse
@@ -142,6 +142,6 @@ class AdminStudentController extends Controller
             }
         });
 
-        return redirect()->route('admin.students.index')->with('success', 'Student removed successfully.');
+        return redirect()->route('administrator.students.index')->with('success', 'Student removed successfully.');
     }
 }

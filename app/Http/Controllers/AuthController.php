@@ -36,7 +36,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->isAdmin()) {
-                return redirect()->intended(route('admin.dashboard'))->with('success', "Welcome back, {$user->name}!");
+                return redirect()->intended(route('administrator.dashboard'))->with('success', "Welcome back, {$user->name}!");
             }
 
             if ($user->isLecturer()) {
@@ -101,7 +101,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         if ($user->isAdmin()) {
-            return redirect()->route('admin.dashboard')->with('success', 'Account created successfully!');
+            return redirect()->route('administrator.dashboard')->with('success', 'Account created successfully!');
         }
 
         if ($user->isLecturer()) {

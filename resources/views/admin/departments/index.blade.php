@@ -8,7 +8,7 @@
 <div class="space-y-6">
     <!-- Action Bar & Search -->
     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-        <form method="GET" action="{{ route('admin.departments.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
+        <form method="GET" action="{{ route('administrator.departments.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
             <div class="relative flex-1 min-w-[220px]">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <i data-lucide="search" class="w-4 h-4"></i>
@@ -21,7 +21,7 @@
                 Filter
             </button>
             @if(request()->filled('search'))
-                <a href="{{ route('admin.departments.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
+                <a href="{{ route('administrator.departments.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
                     Reset
                 </a>
             @endif
@@ -102,7 +102,7 @@
                                     </label>
 
                                     <!-- Delete Button -->
-                                    <form method="POST" action="{{ route('admin.departments.destroy', $dept) }}" onsubmit="return confirm('Are you sure you want to delete department {{ $dept->name }}?');" class="inline">
+                                    <form method="POST" action="{{ route('administrator.departments.destroy', $dept) }}" onsubmit="return confirm('Are you sure you want to delete department {{ $dept->name }}?');" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition" title="Delete Department">
@@ -127,7 +127,7 @@
                                     </label>
                                 </div>
 
-                                <form action="{{ route('admin.departments.update', $dept) }}" method="POST" class="space-y-4">
+                                <form action="{{ route('administrator.departments.update', $dept) }}" method="POST" class="space-y-4">
                                     @csrf
                                     @method('PUT')
                                     <div>
@@ -193,7 +193,7 @@
                 </label>
             </div>
 
-            <form action="{{ route('admin.departments.store') }}" method="POST" class="space-y-4">
+            <form action="{{ route('administrator.departments.store') }}" method="POST" class="space-y-4">
                 @csrf
                 <div>
                     <label for="code" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Code (e.g. CS, ENG, LAW) <span class="text-rose-500">*</span></label>

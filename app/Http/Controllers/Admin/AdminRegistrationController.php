@@ -73,7 +73,7 @@ class AdminRegistrationController extends Controller
 
         CourseRegistration::create($validated);
 
-        return redirect()->route('admin.registrations.index')->with('success', 'Registration recorded successfully.');
+        return redirect()->route('administrator.registrations.index')->with('success', 'Registration recorded successfully.');
     }
 
     public function update(Request $request, CourseRegistration $registration): RedirectResponse
@@ -85,13 +85,13 @@ class AdminRegistrationController extends Controller
 
         $registration->update($validated);
 
-        return redirect()->route('admin.registrations.index')->with('success', 'Registration status updated.');
+        return redirect()->route('administrator.registrations.index')->with('success', 'Registration status updated.');
     }
 
     public function destroy(CourseRegistration $registration): RedirectResponse
     {
         $registration->delete();
 
-        return redirect()->route('admin.registrations.index')->with('success', 'Course registration removed.');
+        return redirect()->route('administrator.registrations.index')->with('success', 'Course registration removed.');
     }
 }

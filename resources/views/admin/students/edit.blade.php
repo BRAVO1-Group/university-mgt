@@ -12,13 +12,13 @@
                 <h2 class="text-base font-bold text-slate-900">Editing: {{ $student->user->name ?? 'Student' }}</h2>
                 <p class="text-xs text-slate-500 font-mono">{{ $student->student_id_number }}</p>
             </div>
-            <a href="{{ route('admin.students.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
+            <a href="{{ route('administrator.students.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 Back to list
             </a>
         </div>
 
-        <form action="{{ route('admin.students.update', $student) }}" method="POST" class="space-y-5">
+        <form action="{{ route('administrator.students.update', $student) }}" method="POST" class="space-y-5">
             @csrf
             @method('PUT')
 
@@ -93,7 +93,7 @@
             </div>
 
             <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-100">
-                <a href="{{ route('admin.students.index') }}" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition">
+                <a href="{{ route('administrator.students.index') }}" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition">
                     Cancel
                 </a>
                 <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-semibold hover:bg-[#1d4ed8] shadow-sm transition inline-flex items-center gap-2">

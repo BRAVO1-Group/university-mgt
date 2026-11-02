@@ -38,7 +38,7 @@ class AdminDepartmentController extends Controller
 
         Department::create($validated);
 
-        return redirect()->route('admin.departments.index')->with('success', 'Department created successfully.');
+        return redirect()->route('administrator.departments.index')->with('success', 'Department created successfully.');
     }
 
     public function update(Request $request, Department $department): RedirectResponse
@@ -52,7 +52,7 @@ class AdminDepartmentController extends Controller
 
         $department->update($validated);
 
-        return redirect()->route('admin.departments.index')->with('success', 'Department updated successfully.');
+        return redirect()->route('administrator.departments.index')->with('success', 'Department updated successfully.');
     }
 
     public function destroy(Department $department): RedirectResponse
@@ -63,6 +63,6 @@ class AdminDepartmentController extends Controller
 
         $department->delete();
 
-        return redirect()->route('admin.departments.index')->with('success', 'Department deleted successfully.');
+        return redirect()->route('administrator.departments.index')->with('success', 'Department deleted successfully.');
     }
 }

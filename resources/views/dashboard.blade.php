@@ -14,7 +14,7 @@
         <p class="text-xs text-slate-500 mb-6">You are signed in with the <strong class="text-slate-800">{{ Auth::user()->roleModel?->name ?? 'Unassigned' }}</strong> portal role.</p>
 
         @if(Auth::user()->isAdmin())
-            <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 shadow-xs">
+            <a href="{{ route('administrator.dashboard') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 shadow-xs">
                 <span>Go to Admin Dashboard</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>

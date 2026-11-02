@@ -9,7 +9,7 @@
     <!-- Top Bar with Manual Enrollment Trigger and Filters -->
     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
         <!-- Search and Filters -->
-        <form method="GET" action="{{ route('admin.registrations.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
+        <form method="GET" action="{{ route('administrator.registrations.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
             <div class="relative flex-1 min-w-[200px]">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                     <i data-lucide="search" class="w-4 h-4"></i>
@@ -36,7 +36,7 @@
                 Filter
             </button>
             @if(request()->hasAny(['search', 'course_id', 'status']))
-                <a href="{{ route('admin.registrations.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
+                <a href="{{ route('administrator.registrations.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
                     Reset
                 </a>
             @endif
@@ -105,7 +105,7 @@
                                 @endif
                             </td>
                             <td class="py-3 px-4">
-                                <form method="POST" action="{{ route('admin.registrations.update', $reg) }}" class="flex items-center gap-1">
+                                <form method="POST" action="{{ route('administrator.registrations.update', $reg) }}" class="flex items-center gap-1">
                                     @csrf
                                     @method('PUT')
                                     <input type="text" name="grade" value="{{ $reg->grade }}" placeholder="—" maxlength="5"
@@ -123,7 +123,7 @@
                             <td class="py-3 px-4 text-right">
                                 <div class="inline-flex items-center gap-1">
                                     @if($reg->status === 'registered')
-                                        <form method="POST" action="{{ route('admin.registrations.update', $reg) }}" class="inline">
+                                        <form method="POST" action="{{ route('administrator.registrations.update', $reg) }}" class="inline">
                                             @csrf
                                             @method('PUT')
                                             <input type="hidden" name="status" value="dropped">
@@ -132,7 +132,7 @@
                                             </button>
                                         </form>
                                     @else
-                                        <form method="POST" action="{{ route('admin.registrations.update', $reg) }}" class="inline">
+                                        <form method="POST" action="{{ route('administrator.registrations.update', $reg) }}" class="inline">
                                             @csrf
                                             @method('PUT')
                                             <input type="hidden" name="status" value="registered">
@@ -142,7 +142,7 @@
                                         </form>
                                     @endif
 
-                                    <form method="POST" action="{{ route('admin.registrations.destroy', $reg) }}" onsubmit="return confirm('Remove this registration record?');" class="inline">
+                                    <form method="POST" action="{{ route('administrator.registrations.destroy', $reg) }}" onsubmit="return confirm('Remove this registration record?');" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50" title="Delete record">
@@ -183,7 +183,7 @@
                 </label>
             </div>
 
-            <form action="{{ route('admin.registrations.store') }}" method="POST" class="space-y-4">
+            <form action="{{ route('administrator.registrations.store') }}" method="POST" class="space-y-4">
                 @csrf
                 <div>
                     <label for="student_id" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Select Student <span class="text-rose-500">*</span></label>

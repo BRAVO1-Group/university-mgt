@@ -12,13 +12,13 @@
                 <h2 class="text-base font-bold text-slate-900">Course Syllabus &amp; Allocation Details</h2>
                 <p class="text-xs text-slate-500">Configure academic catalog parameters</p>
             </div>
-            <a href="{{ route('admin.courses.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
+            <a href="{{ route('administrator.courses.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 Back to catalog
             </a>
         </div>
 
-        <form action="{{ route('admin.courses.store') }}" method="POST" class="space-y-5">
+        <form action="{{ route('administrator.courses.store') }}" method="POST" class="space-y-5">
             @csrf
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-100">
-                <a href="{{ route('admin.courses.index') }}" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition">
+                <a href="{{ route('administrator.courses.index') }}" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition">
                     Cancel
                 </a>
                 <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-semibold hover:bg-[#1d4ed8] shadow-sm transition inline-flex items-center gap-2">

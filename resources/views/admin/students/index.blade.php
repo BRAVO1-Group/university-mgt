@@ -9,7 +9,7 @@
     <!-- Action Bar & Filter Bar -->
     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
         <!-- Search and Filters -->
-        <form method="GET" action="{{ route('admin.students.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
+        <form method="GET" action="{{ route('administrator.students.index') }}" class="flex-1 flex flex-wrap items-center gap-3">
             <div class="relative flex-1 min-w-[200px]">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                     <i data-lucide="search" class="w-4 h-4"></i>
@@ -37,14 +37,14 @@
                 Filter
             </button>
             @if(request()->hasAny(['search', 'department_id', 'year']))
-                <a href="{{ route('admin.students.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
+                <a href="{{ route('administrator.students.index') }}" class="px-3 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs hover:bg-slate-50">
                     Reset
                 </a>
             @endif
         </form>
 
         <!-- Add Student CTA -->
-        <a href="{{ route('admin.students.create') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-semibold hover:bg-[#1d4ed8] shadow-xs shrink-0 transition">
+        <a href="{{ route('administrator.students.create') }}" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#2563eb] text-white text-xs font-semibold hover:bg-[#1d4ed8] shadow-xs shrink-0 transition">
             <i data-lucide="user-plus" class="w-4 h-4"></i>
             <span>Register New Student</span>
         </a>
@@ -113,10 +113,10 @@
                             </td>
                             <td class="py-3 px-4 text-right">
                                 <div class="inline-flex items-center gap-1.5">
-                                    <a href="{{ route('admin.students.edit', $student) }}" class="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition" title="Edit Student">
+                                    <a href="{{ route('administrator.students.edit', $student) }}" class="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition" title="Edit Student">
                                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                                     </a>
-                                    <form method="POST" action="{{ route('admin.students.destroy', $student) }}" onsubmit="return confirm('Are you sure you want to remove this student record?');" class="inline">
+                                    <form method="POST" action="{{ route('administrator.students.destroy', $student) }}" onsubmit="return confirm('Are you sure you want to remove this student record?');" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="p-1.5 rounded-lg text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition" title="Delete Student">

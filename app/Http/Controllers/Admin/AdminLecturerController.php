@@ -79,7 +79,7 @@ class AdminLecturerController extends Controller
             ]);
         });
 
-        return redirect()->route('admin.lecturers.index')->with('success', 'Lecturer added successfully.');
+        return redirect()->route('administrator.lecturers.index')->with('success', 'Lecturer added successfully.');
     }
 
     public function edit(Lecturer $lecturer): View
@@ -126,7 +126,7 @@ class AdminLecturerController extends Controller
             ]);
         });
 
-        return redirect()->route('admin.lecturers.index')->with('success', 'Lecturer details updated successfully.');
+        return redirect()->route('administrator.lecturers.index')->with('success', 'Lecturer details updated successfully.');
     }
 
     public function destroy(Lecturer $lecturer): RedirectResponse
@@ -139,6 +139,6 @@ class AdminLecturerController extends Controller
             }
         });
 
-        return redirect()->route('admin.lecturers.index')->with('success', 'Lecturer removed successfully.');
+        return redirect()->route('administrator.lecturers.index')->with('success', 'Lecturer removed successfully.');
     }
 }

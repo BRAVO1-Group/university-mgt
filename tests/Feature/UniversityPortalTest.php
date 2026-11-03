@@ -42,12 +42,15 @@ class UniversityPortalTest extends TestCase
     public function test_users_from_user_seeder_can_login_to_appropriate_portals(): void
     {
         // Admin login
-        $adminUser = User::where('role', 'admin')->first();
+        $adminUser = User::where('email', 'admin1@gmail.com')->first()
+            ?? User::where('role', 'admin')->first()
+            ?? User::where('role', 'administrator')->first();
+
         $response = $this->post(route('login.post'), [
             'email' => $adminUser->email,
             'password' => 'Admin123',
         ]);
-        $response->assertRedirect(route('admin.dashboard'));
+        $response->assertRedirect(route('administrator.dashboard'));
         $this->assertAuthenticated();
 
         $this->post(route('logout'));
@@ -75,21 +78,23 @@ class UniversityPortalTest extends TestCase
 
     public function test_admin_can_access_dashboard_and_manage_records(): void
     {
-        $admin = User::where('role', 'admin')->first();
+        $admin = User::where('email', 'admin1@gmail.com')->first()
+            ?? User::where('role', 'admin')->first()
+            ?? User::where('role', 'administrator')->first();
 
-        $response = $this->actingAs($admin)->get(route('admin.dashboard'));
+        $response = $this->actingAs($admin)->get(route('administrator.dashboard'));
         $response->assertStatus(200);
         $response->assertSee('Academic Administration Dashboard');
         $response->assertSee('Recent Course Registrations');
 
         // Test students management
-        $response = $this->actingAs($admin)->get(route('admin.students.index'));
+        $response = $this->actingAs($admin)->get(route('administrator.students.index'));
         $response->assertStatus(200);
         $response->assertSee('Student Records Management');
 
         // Test creating student
         $dept = Department::first();
-        $createResponse = $this->actingAs($admin)->post(route('admin.students.store'), [
+        $createResponse = $this->actingAs($admin)->post(route('administrator.students.store'), [
             'name' => 'New Student Test',
             'email' => 'newstudent@test.com',
             'password' => 'secret123',
@@ -99,18 +104,18 @@ class UniversityPortalTest extends TestCase
             'year_of_study' => 1,
             'phone' => '+256 700 999 888',
         ]);
-        $createResponse->assertRedirect(route('admin.students.index'));
+        $createResponse->assertRedirect(route('administrator.students.index'));
         $this->assertDatabaseHas('users', ['email' => 'newstudent@test.com']);
         $this->assertDatabaseHas('students', ['student_id_number' => 'STU-TEST-999']);
 
         // Test courses management
-        $response = $this->actingAs($admin)->get(route('admin.courses.index'));
+        $response = $this->actingAs($admin)->get(route('administrator.courses.index'));
         $response->assertStatus(200);
         $response->assertSee('Course Curriculum & Catalog');
 
         // Test creating course
         $lec = Lecturer::first();
-        $createCourseResponse = $this->actingAs($admin)->post(route('admin.courses.store'), [
+        $createCourseResponse = $this->actingAs($admin)->post(route('administrator.courses.store'), [
             'code' => 'TEST999',
             'title' => 'Advanced Robotics',
             'department_id' => $dept->id,
@@ -123,7 +128,7 @@ class UniversityPortalTest extends TestCase
             'schedule' => 'Mon 10:00 - 12:00',
             'description' => 'Test course description',
         ]);
-        $createCourseResponse->assertRedirect(route('admin.courses.index'));
+        $createCourseResponse->assertRedirect(route('administrator.courses.index'));
         $this->assertDatabaseHas('courses', ['code' => 'TEST999']);
     }
 
@@ -218,7 +223,22 @@ class UniversityPortalTest extends TestCase
     {
         $studentUser = User::where('email', 'alex.kamau@student.ac.ug')->first();
 
-        $response = $this->actingAs($studentUser)->get(route('admin.dashboard'));
+        $response = $this->actingAs($studentUser)->get(route('administrator.dashboard'));
         $response->assertStatus(403);
+    }
+
+    public function test_newly_registered_student_without_profile_can_access_dashboard(): void
+    {
+        $newUser = User::create([
+            'name' => 'Brand New Student',
+            'email' => 'brandnew@student.ac.ug',
+            'password' => 'Secret123',
+            'role' => 'student',
+        ]);
+
+        $response = $this->actingAs($newUser)->get(route('student.dashboard'));
+        $response->assertStatus(200);
+        $response->assertSee('Student Academic Portal');
+        $this->assertDatabaseHas('students', ['user_id' => $newUser->id]);
     }
 }

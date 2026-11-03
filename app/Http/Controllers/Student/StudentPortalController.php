@@ -20,11 +20,26 @@ class StudentPortalController extends Controller
         /** @var User $user */
         $user = Auth::user();
 
+        if (! $user) {
+            return null;
+        }
+
         if ($user->student) {
             return $user->student;
         }
-         return $user-> student;
 
+        $dept = Department::first();
+
+        return Student::firstOrCreate(
+            ['user_id' => $user->id],
+            [
+                'department_id' => $dept?->id,
+                'student_id_number' => 'STU-'.date('Y').'-'.str_pad((string) $user->id, 3, '0', STR_PAD_LEFT),
+                'program' => 'BSc Computer Science',
+                'year_of_study' => 1,
+                'status' => 'active',
+            ]
+        );
     }
 
     public function dashboard(): View

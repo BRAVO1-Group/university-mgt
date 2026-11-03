@@ -19,7 +19,26 @@ class LecturerPortalController extends Controller
         /** @var User $user */
         $user = Auth::user();
 
-        return $user->lecturer ?? Lecturer::first();
+        if (! $user) {
+            return null;
+        }
+
+        if ($user->lecturer) {
+            return $user->lecturer;
+        }
+
+        $dept = Department::first();
+
+        return Lecturer::firstOrCreate(
+            ['user_id' => $user->id],
+            [
+                'department_id' => $dept?->id,
+                'staff_id' => 'LEC-'.str_pad((string) $user->id, 4, '0', STR_PAD_LEFT),
+                'title' => 'Lecturer',
+                'office_location' => 'Faculty Building',
+                'qualification' => 'Faculty Lecturer',
+            ]
+        );
     }
 
     public function dashboard(): View

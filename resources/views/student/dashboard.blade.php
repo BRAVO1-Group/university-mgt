@@ -11,13 +11,13 @@
         <div>
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-600/60 text-blue-100 text-xs font-semibold mb-2">
                 <i data-lucide="award" class="w-3.5 h-3.5"></i>
-                Enrolled Student · {{ $student->department->name ?? 'Undergraduate Faculty' }}
+                Enrolled Student · {{ $student?->department?->name ?? 'Undergraduate Faculty' }}
             </div>
             <h2 class="text-2xl font-extrabold">{{ Auth::user()->name }}</h2>
             <p class="text-xs text-blue-200 mt-1">
-                Student ID: <span class="font-mono font-bold">{{ $student->student_id_number }}</span> ·
-                Program: {{ $student->program }} ·
-                Year: {{ $student->year_of_study }} (Semester 1)
+                Student ID: <span class="font-mono font-bold">{{ $student?->student_id_number ?? 'Pending ID' }}</span> ·
+                Program: {{ $student?->program ?? 'Undergraduate Degree' }} ·
+                Year: {{ $student?->year_of_study ?? 1 }} (Semester 1)
             </p>
         </div>
         <div class="flex items-center gap-2">

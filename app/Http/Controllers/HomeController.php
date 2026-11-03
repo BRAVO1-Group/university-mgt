@@ -43,7 +43,7 @@ class HomeController extends Controller
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-            return redirect()->route('administratordashboard');
+            return redirect()->route('administrator.dashboard');
         }
 
         if ($user->isLecturer()) {

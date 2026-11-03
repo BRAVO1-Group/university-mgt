@@ -11,13 +11,13 @@
         <div>
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-700/60 text-emerald-200 text-xs font-semibold mb-2">
                 <i data-lucide="award" class="w-3.5 h-3.5"></i>
-                Faculty Member · {{ $lecturer->department->name ?? 'Academic Faculty' }}
+                Faculty Member · {{ $lecturer?->department?->name ?? 'Academic Faculty' }}
             </div>
-            <h2 class="text-2xl font-extrabold">{{ $lecturer->title }} {{ Auth::user()->name }}</h2>
+            <h2 class="text-2xl font-extrabold">{{ $lecturer?->title ?? 'Lecturer' }} {{ Auth::user()->name }}</h2>
             <p class="text-xs text-emerald-200 mt-1">
-                Staff ID: <span class="font-mono font-semibold">{{ $lecturer->staff_id }}</span> ·
-                Office: {{ $lecturer->office_location ?? 'Faculty Complex' }} ·
-                {{ $lecturer->qualification ?? 'Faculty Lecturer' }}
+                Staff ID: <span class="font-mono font-semibold">{{ $lecturer?->staff_id ?? 'Pending ID' }}</span> ·
+                Office: {{ $lecturer?->office_location ?? 'Faculty Complex' }} ·
+                {{ $lecturer?->qualification ?? 'Faculty Lecturer' }}
             </p>
         </div>
         <div class="flex items-center gap-2">

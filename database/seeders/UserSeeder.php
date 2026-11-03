@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'name' => 'Muwanga samuel',
                 'email' => 'admin1@gmail.com',
                 'password' => Hash::make('Admin123'),
-                'role' => 'administrator',
+                'role' => 'admin',
             ],
             [
                 'name' => 'peterson',
@@ -40,15 +40,23 @@ class UserSeeder extends Seeder
 
         $dept = Department::first();
 
+        $adminRole = Role::whereIn('name', ['Administrator', 'Admin'])->first()
+            ?? Role::create(['name' => 'Administrator']);
+
         foreach ($users as $userData) {
-        $role = Role::where('name', $userData['role'])->firstOrFail();
+            $isRoleAdmin = in_array(strtolower($userData['role']), ['admin', 'administrator'], true);
+            $role = $isRoleAdmin
+                ? $adminRole
+                : (Role::whereRaw('LOWER(name) = ?', [strtolower($userData['role'])])->first()
+                    ?? Role::where('name', ucfirst(strtolower($userData['role'])))->first());
+
             $user = User::updateOrCreate(
                 ['email' => $userData['email']],
                 [
                     'name' => $userData['name'],
                     'password' => $userData['password'],
                     'role_id' => $role?->id,
-                    'role' => strtolower($userData['role']),
+                    'role' => strtolower($role?->name ?? $userData['role']),
                 ]
             );
 

@@ -21,11 +21,18 @@ class EnsureUserHasRole
             return redirect()->route('login')->with('error', 'Please log in to continue.');
         }
 
-        $userRole = strtolower($user->roleModel?->name ?? '');
+        $userRole = strtolower($user->roleModel?->name ?? $user->role ?? '');
 
         $allowedRoles = array_map('strtolower', $roles);
 
-        if (! in_array($user->role, $roles, true)) {
+        if (in_array('administrator', $allowedRoles, true) && ! in_array('admin', $allowedRoles, true)) {
+            $allowedRoles[] = 'admin';
+        }
+        if (in_array('admin', $allowedRoles, true) && ! in_array('administrator', $allowedRoles, true)) {
+            $allowedRoles[] = 'administrator';
+        }
+
+        if (! in_array($userRole, $allowedRoles, true) && ! in_array(strtolower((string) $user->role), $allowedRoles, true)) {
             abort(403, 'Unauthorized access to this portal.');
         }
 

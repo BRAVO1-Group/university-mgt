@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Lecturer;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -60,12 +61,15 @@ class AdminLecturerController extends Controller
             'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
-        DB::transaction(function () use ($validated) {
+        $role = Role::whereIn('name', ['Lecturer', 'lecturer'])->first();
+
+        DB::transaction(function () use ($validated, $role) {
             $user = User::create([
                 'name' => $validated['name'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
                 'role' => 'lecturer',
+                'role_id' => $role?->id,
                 'phone' => $validated['phone'] ?? null,
             ]);
 

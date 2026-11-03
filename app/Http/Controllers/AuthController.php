@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Lecturer;
+use App\Models\Role;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -70,10 +71,15 @@ class AuthController extends Controller
             'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
+        $roleName = $request->string('role')->toString();
+        $role = Role::whereRaw('LOWER(name) = ?', [strtolower($roleName)])->first()
+            ?? Role::where('name', ucfirst(strtolower($roleName)))->first();
+
         $user = User::create([
             'name' => $request->string('name'),
             'email' => $request->string('email'),
-            'role' => $request->string('role'),
+            'role' => $roleName,
+            'role_id' => $role?->id,
             'phone' => $request->string('phone'),
             'password' => Hash::make($request->string('password')),
         ]);

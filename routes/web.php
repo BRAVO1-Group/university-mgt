@@ -23,10 +23,17 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 // Authentication routes
+Route::get('/login', [AuthController::class, 'showLoginForm']);
 Route::get('/auth/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/auth/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm']);
 Route::get('/auth/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/auth/register', [AuthController::class, 'register'])->name('register.post');
+
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Portal Routes

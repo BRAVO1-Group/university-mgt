@@ -4,3 +4,8 @@ database.sqlite
 browser.log
 laravel.log
 .env
+.env.backup
+.env.production
+.phpunit.result.cache
+/public/hot
+/public/storage

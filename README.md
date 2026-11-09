@@ -154,7 +154,7 @@ This section contains screenshots demonstrating the working application.
 
 ### 3.6 Lecturer View
 
-![Lecturer View](pulic/assets/img/lecturerview.png)
+![Lecturer View](public/assets/img/lecturerview.png)
 
 ### 3.7 Student View
 

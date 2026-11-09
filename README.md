@@ -134,7 +134,7 @@ This section contains screenshots demonstrating the working application.
 
 ### 3.1 Login Page
 
-![Login Page](assets/img/Login.png)
+![Login Page](public/assets/img/Login.png)
 
 ### 3.2 Administrator Dashboard
 

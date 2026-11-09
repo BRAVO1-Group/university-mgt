@@ -138,24 +138,24 @@ This section contains screenshots demonstrating the working application.
 
 ### 3.2 Administrator Dashboard
 
-![Administrator Dashboard](assets/img/Admindashboard.png)
+![Administrator Dashboard](public/assets/img/Admindashboard.png)
 
 ### 3.3 Student Management
 
-![Student Management](assets/img/studentmanagment.png)
+![Student Management](public/assets/img/studentmanagment.png)
 
 ### 3.4 Course Management
 
-![Course Managment](assets/img/coursemanagement.png)
+![Course Managment](public/assets/img/coursemanagement.png)
 
 ### 3.5 Course Registration
 
-![Course Registration](assets/img/coursemanagement.png)
+![Course Registration](public/assets/img/coursemanagement.png)
 
 ### 3.6 Lecturer View
 
-![Lecturer View](assets/img/lecturerview.png)
+![Lecturer View](pulic/assets/img/lecturerview.png)
 
 ### 3.7 Student View
 
-![Student View](assets/img/studentview.png)
+![Student View](public/assets/img/studentview.png)

@@ -12,10 +12,10 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-6">
-                <a href="{{ route('home') }}" class="text-sm font-medium transition-colors hover:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('home') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Home</a>
-                <a href="{{ route('home') }}#departments" class="text-sm font-medium text-slate-600 hover:text-[#2563eb] focus-visible:text-[#2563eb] transition-colors">Departments</a>
-                <a href="{{ route('home') }}#courses" class="text-sm font-medium text-slate-600 hover:text-[#2563eb] focus-visible:text-[#2563eb] transition-colors">Course Catalog</a>
-                <a href="{{ route('contact') }}" class="text-sm font-medium transition-colors hover:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('contact') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Contact</a>
+                <a href="{{ route('home') }}" class="text-sm font-medium transition-colors hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('home') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Home</a>
+                <a href="{{ route('home') }}#departments" class="text-sm font-medium text-slate-600 hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] transition-colors">Departments</a>
+                <a href="{{ route('home') }}#courses" class="text-sm font-medium text-slate-600 hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] transition-colors">Course Catalog</a>
+                <a href="{{ route('contact') }}" class="text-sm font-medium transition-colors hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('contact') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Contact</a>
 
                 @auth
                     <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2563eb] text-white rounded-lg font-medium text-sm hover:bg-[#1d4ed8] shadow-sm">
@@ -48,10 +48,10 @@
         <input type="checkbox" id="mobile-nav-toggle" class="peer hidden">
         <div class="hidden peer-checked:block md:!hidden py-4 border-t border-slate-200">
             <div class="flex flex-col gap-3">
-                <a href="{{ route('home') }}" class="text-sm font-medium py-1 transition-colors hover:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('home') ? 'text-[#2563eb] font-semibold' : 'text-slate-800' }}">Home</a>
-                <a href="{{ route('home') }}#departments" class="text-slate-600 hover:text-[#2563eb] focus-visible:text-[#2563eb] text-sm font-medium py-1 transition-colors">Departments</a>
-                <a href="{{ route('home') }}#courses" class="text-slate-600 hover:text-[#2563eb] focus-visible:text-[#2563eb] text-sm font-medium py-1 transition-colors">Course Catalog</a>
-                <a href="{{ route('contact') }}" class="text-sm font-medium py-1 transition-colors hover:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('contact') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Contact</a>
+                <a href="{{ route('home') }}" class="text-sm font-medium py-1 transition-colors hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('home') ? 'text-[#2563eb] font-semibold' : 'text-slate-800' }}">Home</a>
+                <a href="{{ route('home') }}#departments" class="text-slate-600 hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] text-sm font-medium py-1 transition-colors">Departments</a>
+                <a href="{{ route('home') }}#courses" class="text-slate-600 hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] text-sm font-medium py-1 transition-colors">Course Catalog</a>
+                <a href="{{ route('contact') }}" class="text-sm font-medium py-1 transition-colors hover:text-[#2563eb] active:text-[#2563eb] focus-visible:text-[#2563eb] {{ request()->routeIs('contact') ? 'text-[#2563eb] font-semibold' : 'text-slate-600' }}">Contact</a>
 
                 <div class="flex flex-col gap-2 pt-2 border-t border-slate-100">
                     @auth

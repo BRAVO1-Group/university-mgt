@@ -142,11 +142,11 @@ This section contains screenshots demonstrating the working application.
 
 ### 3.3 Student Management
 
-\_![Student Management](assets/img/studentmanagment.png)
+![Student Management](assets/img/studentmanagment.png)
 
 ### 3.4 Course Management
 
-\_![Course Managment](assets/img/coursemanagement.png)
+![Course Managment](assets/img/coursemanagement.png)
 
 ### 3.5 Course Registration
 

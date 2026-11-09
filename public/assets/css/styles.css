@@ -14,6 +14,49 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background: #ffffff;
     color: #0f172a;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.text-slate-400,
+.text-gray-400 {
+    color: #475569 !important;
+}
+
+.bg-slate-900 .text-slate-400,
+.bg-slate-900 .text-gray-400,
+.bg-slate-800 .text-slate-400,
+.bg-slate-800 .text-gray-400 {
+    color: #cbd5e1 !important;
+}
+
+.text-xs,
+[class~="text-[11px]"] {
+    font-size: 0.8125rem !important;
+    line-height: 1.25rem !important;
+}
+
+[class~="text-[10px]"] {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+.input-field::placeholder {
+    color: #64748b !important;
+    opacity: 1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #2563eb !important;
+    outline-offset: 3px;
 }
 
 .text-gradient {

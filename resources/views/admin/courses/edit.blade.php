@@ -12,7 +12,7 @@
                 <h2 class="text-base font-bold text-slate-900">Editing: {{ $course->code }} — {{ $course->title }}</h2>
                 <p class="text-xs text-slate-500">{{ $course->department->name ?? 'General' }}</p>
             </div>
-            <a href="{{ route('admininistrator.courses.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
+            <a href="{{ route('administrator.courses.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 Back to catalog
             </a>

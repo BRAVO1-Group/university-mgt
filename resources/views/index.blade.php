@@ -113,9 +113,6 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Admin Card -->
                 <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-xs hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5 border border-purple-100">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">Administrators</h3>
                     <p class="text-sm text-slate-500 mb-4 leading-relaxed">
                         Full administrative oversight over student profiles, lecturer credentials, departments, course catalog offerings, and official enrollments.
@@ -132,9 +129,6 @@
 
                 <!-- Lecturer Card -->
                 <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-xs hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 border border-emerald-100">
-                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                    </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">Lecturers &amp; Faculty</h3>
                     <p class="text-sm text-slate-500 mb-4 leading-relaxed">
                         View assigned teaching courses, access live registered student rosters, track class sizes, and manage academic performance.
@@ -151,9 +145,6 @@
 
                 <!-- Student Card -->
                 <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-xs hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5 border border-blue-100">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
-                    </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">Students</h3>
                     <p class="text-sm text-slate-500 mb-4 leading-relaxed">
                         Explore available department courses, register for subjects in 1 click, track accumulated credit units, and manage enrolled modules.
